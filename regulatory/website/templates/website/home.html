@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+</head>
+<body>
+
+<h1>Welcome to the homepage of my website.</h1>
+<br>
+{% if latest_marketing_authorisations %}
+<ul>
+    {% for ma in latest_marketing_authorisations %}
+    <li><a href="/products/{{ ma.id_prod }}/"><i>({{ma.inn_name}}) </i> {{ ma.product_name}} - {{ma.strength}}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No news.</p>
+{% endif %}
+
+</body>
+</html>
