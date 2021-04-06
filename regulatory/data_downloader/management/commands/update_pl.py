@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup as Soup
 from django.core.management.base import BaseCommand, CommandError
-from regulatory.data_downloader.models import *
+from .models import *
 import requests
 
 
