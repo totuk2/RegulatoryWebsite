@@ -80,6 +80,7 @@ DATABASES = {
         'USER': 'totuk',
         'PASSWORD': 'QmPht@57qXaxYrx',
         'HOST': 'totuk.mysql.pythonanywhere-services.com',
+        'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
     }
 }
 
