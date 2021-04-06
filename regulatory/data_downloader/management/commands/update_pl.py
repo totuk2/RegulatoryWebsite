@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup as Soup
 from django.core.management.base import BaseCommand, CommandError
-from regulatory.data_downloader.models import *
+from data_downloader.models import *
 import requests
 
 
@@ -34,7 +34,7 @@ def download_and_parse():
     reg_incr_url = "http://pub.rejestrymedyczne.csioz.gov.pl/pobieranie_WS/Pobieranie.ashx?" \
                    "filetype=XMLUpdateFile&regtype=RPL_FILES_GROWTH"
     reg_incr_data = requests.get(reg_incr_url)
-
+    print(reg_incr_data.status_code)
     if reg_incr_data.status_code == 200:
         handler = reg_incr_data.text
 
@@ -69,9 +69,10 @@ def download_and_parse():
     #     print(product.get('product_name'))
 
 class Command(BaseCommand):
-    def handle(self):
+    def handle(self, *args, **options):
         data_list = download_and_parse()
         for record in data_list:
+
             try:
                 inn_name, inn_created = INN_Name.objects.get_or_create(inn_name=record.pop('inn_name'))
             except KeyError:
@@ -105,5 +106,4 @@ class Command(BaseCommand):
             )
             r.active_substance.set(active_substances)
 
-            self.stdout.write(self.style.SUCCESS('Successfully updated PL'))
-
+        self.stdout.write(self.style.SUCCESS('Successfully updated PL'))
