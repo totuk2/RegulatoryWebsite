@@ -24,7 +24,7 @@ SECRET_KEY = '5e335bzu*dgksww(khd=h24x5kog1_6u-4^*tg9u^2d@tkb+%&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['totuk.pythonanywhere.com']
 
 # Application definition
 
