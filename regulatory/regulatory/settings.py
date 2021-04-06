@@ -75,8 +75,11 @@ WSGI_APPLICATION = 'regulatory.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'totuk$pl_reg',
+        'USER': 'totuk',
+        'PASSWORD': 'QmPht@57qXaxYrx',
+        'HOST': 'totuk.mysql.pythonanywhere-services.com',
     }
 }
 
