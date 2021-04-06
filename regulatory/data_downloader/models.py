@@ -48,7 +48,7 @@ class MarketingAuthorisation(models.Model):
     pharmaceutical_form = models.CharField(max_length=limitedString)  # postac
     ma_holder = models.ForeignKey(Company, on_delete=models.CASCADE)  # podmiotOdpowiedzialny
     procedure_type = models.ForeignKey(RegulatoryProcedure, on_delete=models.CASCADE)  # typProcedury
-    ma_validity = models.DateField()  # waznoscPozwolenia
+    ma_validity = models.CharField(max_length=limitedString)  # waznoscPozwolenia
     atc_code1 = models.CharField(max_length=limitedString)  # kodATC1
     # atc_code2 = models.CharField(max_length=2)  # kodATC2
     # atc_code3 = models.CharField(max_length=1)  # kodATC3

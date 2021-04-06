@@ -3,7 +3,7 @@ from data_downloader.models import MarketingAuthorisation
 
 
 def home(request):
-    latest_marketing_authorisations = MarketingAuthorisation.objects.order_by('-record_date')
+    latest_marketing_authorisations = MarketingAuthorisation.objects.filter(status="Nowy")
     context = {'latest_marketing_authorisations': latest_marketing_authorisations}
     return render(request, 'website/home.html', context)
 
